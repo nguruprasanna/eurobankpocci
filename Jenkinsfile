@@ -13,7 +13,7 @@ pipeline {
             sh '''echo "Checking For DSF"
 sleep 5s
 export IRISSERVER="10.0.18.9"
-echo \'http://$IRISSERVER:8080\''''
+echo "http://$IRISSERVER:8080"'''
           }
         }
 
