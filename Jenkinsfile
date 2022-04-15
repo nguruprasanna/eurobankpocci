@@ -7,8 +7,19 @@ pipeline {
   }
   stages {
     stage('checkenvironment') {
-      steps {
-        sh 'echo "Checking For DSF"'
+      parallel {
+        stage('checkenvironment') {
+          steps {
+            sh 'echo "Checking For DSF"'
+          }
+        }
+
+        stage('checkin warfiles') {
+          steps {
+            load '/home/guru/poctarget/source/findClassinJar.groovy'
+          }
+        }
+
       }
     }
 
