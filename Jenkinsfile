@@ -17,6 +17,8 @@ pipeline {
         stage('checkin warfiles') {
           steps {
             load '/home/guru/poctarget/source/findClassinJar.groovy'
+            sh 'findClassinJar.example1()'
+            sh 'findClassinJar.example2()'
           }
         }
 
