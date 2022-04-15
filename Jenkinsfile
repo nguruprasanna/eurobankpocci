@@ -7,8 +7,26 @@ pipeline {
   }
   stages {
     stage('checkenvironment') {
-      steps {
-        sh 'echo "Checking For DSF"'
+      parallel {
+        stage('checkenvironment') {
+          steps {
+            sh 'echo "Checking For DSF"'
+          }
+        }
+
+        stage('checkwarfile') {
+          steps {
+            sh '''echo \'jar -tvf target/dsf-iris.war | grep dsf.properties\'
+
+echo \'jar xvf target/dsf-iris.war WEB-INF\\classes\\dsf.properties\'
+jar xvf /home/guru/poctarget/irf-test-web.war WEB-INF/classes/jms.properties 
+grep \'t24.security.context=INPUTT/123456\' WEB-INF/classes/jms.properties 
+
+
+'''
+          }
+        }
+
       }
     }
 
