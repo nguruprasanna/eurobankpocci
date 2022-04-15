@@ -1,7 +1,7 @@
 pipeline {
   agent {
     node {
-      label 'estjbase'
+      label 'estjbaseserver'
     }
 
   }
