@@ -12,7 +12,7 @@ pipeline {
           steps {
             sh '''echo "Checking For DSF"
 sleep 5s
-IRISSERVER="10.0.18.9"
+export IRISSERVER="10.0.18.9"
 echo \'http://$IRISSERVER:8080\''''
           }
         }
