@@ -10,7 +10,8 @@ pipeline {
       parallel {
         stage('checkenvironment') {
           steps {
-            sh 'echo "Checking For DSF"'
+            sh '''echo "Checking For DSF"
+sleep 5s'''
           }
         }
 
@@ -21,6 +22,7 @@ pipeline {
 echo \'jar xvf target/dsf-iris.war WEB-INF\\classes\\dsf.properties\'
 jar xvf /home/guru/poctarget/irf-test-web.war WEB-INF/classes/jms.properties 
 grep \'t24.security.context=INPUTT/123456\' WEB-INF/classes/jms.properties 
+sleep 10s
 
 
 '''
@@ -30,7 +32,8 @@ grep \'t24.security.context=INPUTT/123456\' WEB-INF/classes/jms.properties
         stage('build') {
           steps {
             sh '''echo "copy target"
-cp /home/guru/poctarget/irf-test-web.war /home/guru/poctarget/copytarget '''
+cp /home/guru/poctarget/irf-test-web.war /home/guru/poctarget/copytarget 
+sleep 20s'''
           }
         }
 
