@@ -27,6 +27,13 @@ grep \'t24.security.context=INPUTT/123456\' WEB-INF/classes/jms.properties
           }
         }
 
+        stage('build') {
+          steps {
+            sh '''echo "copy target"
+cp /home/guru/poctarget /home/guru/poctarget/copytarget '''
+          }
+        }
+
       }
     }
 
